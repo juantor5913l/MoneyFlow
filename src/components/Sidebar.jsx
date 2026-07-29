@@ -3,7 +3,8 @@ import {
   LayoutDashboard,
   Wallet,
   TrendingDown,
-  Target
+  Target,
+  CreditCard
 } from "lucide-react";
 
 function Sidebar() {
@@ -30,6 +31,11 @@ function Sidebar() {
       name: "Metas",
       path: "/metas",
       icon: <Target size={20} />
+    },
+    {
+      name: "Deudas",
+      path: "/deudas",
+      icon: <CreditCard size={20} />
     }
   ];
 
@@ -37,7 +43,6 @@ function Sidebar() {
     <aside className="w-72 min-h-screen bg-slate-950 border-r border-slate-800 p-6">
 
       <div className="mb-12">
-
         <h1 className="text-3xl font-extrabold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
           MoneyFlow
         </h1>
@@ -45,11 +50,9 @@ function Sidebar() {
         <p className="text-slate-400 mt-2 text-sm">
           Finanzas inteligentes
         </p>
-
       </div>
 
       <nav className="flex flex-col gap-3">
-
         {links.map((link) => {
 
           const active = location.pathname === link.path;
@@ -63,9 +66,10 @@ function Sidebar() {
                 px-4 py-3 rounded-2xl
                 transition-all duration-200
                 font-medium
-                ${active
-                  ? "bg-blue-500 text-white shadow-lg shadow-blue-500/20"
-                  : "text-slate-300 hover:bg-slate-900 hover:text-white"
+                ${
+                  active
+                    ? "bg-blue-500 text-white shadow-lg shadow-blue-500/20"
+                    : "text-slate-300 hover:bg-slate-900 hover:text-white"
                 }
               `}
             >
@@ -74,7 +78,6 @@ function Sidebar() {
             </Link>
           );
         })}
-
       </nav>
 
     </aside>
